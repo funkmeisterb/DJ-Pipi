@@ -1,0 +1,59 @@
+#N canvas 285 139 908 584 10;
+#X declare -lib mrpeach;
+#X obj 462 73 import mrpeach;
+#X obj 33 344 udpsend;
+#X obj 193 285 packOSC;
+#X text 204 50 Boys' room;
+#X text 236 104 Ladies' room;
+#X msg 83 243 disconnect;
+#X obj 493 236 udpreceive 80085;
+#X msg 40 51 connect 10.10.80.48 80085;
+#X msg 65 105 connect 10.10.80.49 80085;
+#X obj 493 274 unpackOSC;
+#X obj 346 472 print FROM_OSC;
+#X obj 40 23 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 65 78 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 84 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 84 186 connect localhost 80085;
+#X text 245 187 Testing;
+#X msg 194 244 send /trigger1;
+#X obj 535 319 routeOSC /trigger1 /trigger2 /trigger3 /trigger4;
+#X obj 535 352 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 596 444 readsf~;
+#X msg 666 59 \; pd dsp \$1;
+#X obj 665 27 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 646 379 open 171104__dwsd__kick-gettinglaid.wav;
+#X msg 664 415 start;
+#X msg 698 430 stop;
+#X obj 665 -2 loadbang;
+#X obj 601 518 dac~ 1 2;
+#X obj 662 470 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 2 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 9 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 10 0;
+#X connect 9 0 17 0;
+#X connect 11 0 7 0;
+#X connect 12 0 8 0;
+#X connect 13 0 14 0;
+#X connect 14 0 1 0;
+#X connect 16 0 2 0;
+#X connect 17 0 18 0;
+#X connect 18 0 23 0;
+#X connect 19 0 26 0;
+#X connect 19 0 26 1;
+#X connect 19 1 27 0;
+#X connect 21 0 20 0;
+#X connect 22 0 19 0;
+#X connect 23 0 19 0;
+#X connect 24 0 19 0;
+#X connect 25 0 21 0;
+#X connect 27 0 22 0;
