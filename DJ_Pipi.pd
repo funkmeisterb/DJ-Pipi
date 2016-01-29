@@ -45,7 +45,7 @@
 #X msg -202 264 send /trigger2;
 #X msg -103 263 send /trigger3;
 #X msg 1 263 send /trigger4;
-#X obj 564 403 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -4034
+#X obj 762 397 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -4034
 -1 -1;
 #X obj 375 708 r file_trigger1;
 #N canvas 0 0 450 300 (subpatch) 0;
@@ -69,7 +69,7 @@
 #X obj 583 858 r file_trigger4;
 #X obj 596 878 r trigger4;
 #X obj 583 899 tabplay~ sf-trigger4;
-#X obj 564 363 loadbang;
+#X obj 762 357 loadbang;
 #X obj 301 379 key;
 #X obj 280 540 s trigger1;
 #X obj 309 520 s trigger2;
@@ -98,7 +98,7 @@
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -309 758 graph;
 #X text -306 418 REMOTE TRIGGERS;
-#N canvas 1033 318 450 300 KIT1_LOCAL 0;
+#N canvas 1033 318 691 487 KIT1_LOCAL 0;
 #X obj 62 123 soundfiler;
 #X obj 62 149 s file_trigger1;
 #X obj 183 156 soundfiler;
@@ -126,7 +126,7 @@ sf-trigger4;
 #X connect 12 0 5 0;
 #X connect 12 0 8 0;
 #X connect 12 0 10 0;
-#X restore 564 486 pd KIT1_LOCAL;
+#X restore 762 480 pd KIT1_LOCAL;
 #N canvas 1033 318 673 440 SECRET 0;
 #X obj 62 123 soundfiler;
 #X obj 62 26 inlet;
@@ -136,7 +136,7 @@ sf-trigger4;
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;
-#X restore 798 436 pd SECRET SOUNDS;
+#X restore 639 399 pd SECRET SOUNDS;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array sf-secret1 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
@@ -153,6 +153,48 @@ sf-trigger4;
 #X floatatom 346 416 5 0 0 0 - - -;
 #X obj 280 448 route 119 97 115 100 45;
 #X obj 422 513 s secret1;
+#N canvas -8 -8 1920 997 KIT2_LOCAL 0;
+#X obj 62 123 soundfiler;
+#X obj 62 149 s file_trigger1;
+#X obj 183 156 soundfiler;
+#X obj 183 182 s file_trigger2;
+#X obj 308 186 soundfiler;
+#X obj 308 212 s file_trigger3;
+#X obj 419 225 soundfiler;
+#X obj 419 251 s file_trigger4;
+#X obj 63 26 inlet;
+#X msg 62 98 read 808/183102__dwsd__clp-bodacious.wav sf-trigger1;
+#X msg 419 191 read 808/183125__dwsd__prc-dust808popperc.wav sf-trigger4
+;
+#X msg 183 130 read 808/183125__dwsd__prc-dust808popperc.wav sf-trigger2
+;
+#X msg 308 160 read 808/183104__dwsd__hat-bodacious.wav sf-trigger3
+;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 8 0 11 0;
+#X connect 8 0 12 0;
+#X connect 8 0 10 0;
+#X connect 9 0 0 0;
+#X connect 10 0 6 0;
+#X connect 11 0 2 0;
+#X connect 12 0 4 0;
+#X restore 853 478 pd KIT2_LOCAL;
+#X text 766 457 CLASSIC;
+#X obj 853 397 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -204800
+-1 -1;
+#X text 857 459 808;
+#X text 764 499 1: KICK;
+#X text 763 516 2: SNARE;
+#X text 765 532 3: HI-HAT;
+#X text 765 551 4: CRASH;
+#X text 851 533 3: HI-HAT;
+#X text 851 553 4: POPPER;
+#X text 850 500 1: ?;
+#X text 849 517 2: CLAP;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 9 0;
@@ -212,3 +254,4 @@ sf-trigger4;
 #X connect 75 2 52 0;
 #X connect 75 3 53 0;
 #X connect 75 4 76 0;
+#X connect 79 0 77 0;
