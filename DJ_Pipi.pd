@@ -1,4 +1,4 @@
-#N canvas 0 0 1920 997 10;
+#N canvas -8 -8 1920 997 10;
 #X declare -lib mrpeach;
 #X obj -115 33 import mrpeach;
 #X obj -462 364 udpsend;
@@ -25,14 +25,14 @@
 #X obj -111 84 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj -111 55 loadbang;
-#X obj 387 968 dac~ 1 2;
+#X obj 289 955 dac~ 1 2;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array sf-trigger1 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -458 457 graph;
-#X obj 375 749 tabplay~ sf-trigger1;
+#X obj 118 767 tabplay~ sf-trigger1;
 #X obj 162 161 s trigger1;
-#X obj 388 728 r trigger1;
+#X obj 131 746 r trigger1;
 #X obj 233 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 233 161 s trigger2;
@@ -47,7 +47,7 @@
 #X msg 1 263 send /trigger4;
 #X obj 762 397 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -4034
 -1 -1;
-#X obj 375 708 r file_trigger1;
+#X obj 118 726 r file_trigger1;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array sf-trigger2 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
@@ -60,24 +60,24 @@
 #X array sf-trigger4 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -462 757 graph;
-#X obj 526 704 r file_trigger2;
-#X obj 539 724 r trigger2;
-#X obj 526 745 tabplay~ sf-trigger2;
-#X obj 571 787 r file_trigger3;
-#X obj 584 807 r trigger3;
-#X obj 571 828 tabplay~ sf-trigger3;
-#X obj 583 858 r file_trigger4;
-#X obj 596 878 r trigger4;
-#X obj 583 899 tabplay~ sf-trigger4;
+#X obj 249 726 r file_trigger2;
+#X obj 262 746 r trigger2;
+#X obj 249 767 tabplay~ sf-trigger2;
+#X obj 384 726 r file_trigger3;
+#X obj 397 746 r trigger3;
+#X obj 384 767 tabplay~ sf-trigger3;
+#X obj 519 726 r file_trigger4;
+#X obj 532 746 r trigger4;
+#X obj 519 767 tabplay~ sf-trigger4;
 #X obj 762 357 loadbang;
 #X obj 301 379 key;
-#X obj 280 540 s trigger1;
-#X obj 309 520 s trigger2;
-#X obj 338 501 s trigger3;
-#X obj 367 481 s trigger4;
-#X text 167 337 W = sample 1 A = sample 2 S = sample 3 D = sample 4
+#X obj 267 621 s trigger1;
+#X obj 296 601 s trigger2;
+#X obj 325 582 s trigger3;
+#X obj 354 562 s trigger4;
+#X text 170 291 W = sample 1 A = sample 2 S = sample 3 D = sample 4
 ;
-#X obj 280 363 tgl 15 0 empty empty Keyboard_control 17 7 0 10 -260097
+#X obj 280 320 tgl 45 0 empty empty Keyboard_control 17 7 0 10 -260097
 -1 -1 1 1;
 #X obj 280 410 gate;
 #X text -459 417 LOCAL TRIGGERS;
@@ -142,9 +142,9 @@ sf-trigger4;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -144 455 graph;
 #X text -145 415 SECRET TRIGGERS;
-#X obj 228 716 r file_secret1;
-#X obj 241 736 r secret1;
-#X obj 228 757 tabplay~ sf-secret1;
+#X obj -10 726 r file_secret1;
+#X obj 3 746 r secret1;
+#X obj -10 767 tabplay~ sf-secret1;
 #X obj 162 103 routeOSC /trigger1 /trigger2 /trigger3 /trigger4;
 #X obj 585 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -152,8 +152,8 @@ sf-trigger4;
 #X obj 585 160 s secret1;
 #X floatatom 346 416 5 0 0 0 - - -;
 #X obj 280 448 route 119 97 115 100 45;
-#X obj 422 513 s secret1;
-#N canvas -8 -8 1920 997 KIT2_LOCAL 0;
+#X obj 388 503 s secret1;
+#N canvas 0 0 1920 997 KIT2_LOCAL 0;
 #X obj 62 123 soundfiler;
 #X obj 62 149 s file_trigger1;
 #X obj 183 156 soundfiler;
@@ -195,6 +195,25 @@ sf-trigger4;
 #X text 851 553 4: POPPER;
 #X text 850 500 1: ?;
 #X text 849 517 2: CLAP;
+#X obj 119 792 sfx;
+#X obj 267 572 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 290 566 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 319 557 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 350 536 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 388 481 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 824 698 mtof;
+#X obj 824 726 phasor~;
+#X msg 787 636 69;
+#X msg 842 646 0;
+#X obj 900 685 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 824 754 *~;
+#X obj 1010 563 notein;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 9 0;
@@ -210,8 +229,7 @@ sf-trigger4;
 #X connect 16 0 23 0;
 #X connect 18 0 17 0;
 #X connect 19 0 18 0;
-#X connect 22 0 20 0;
-#X connect 22 0 20 1;
+#X connect 22 0 89 0;
 #X connect 24 0 22 0;
 #X connect 25 0 26 0;
 #X connect 27 0 28 0;
@@ -249,9 +267,22 @@ sf-trigger4;
 #X connect 70 3 29 0;
 #X connect 71 0 73 0;
 #X connect 72 0 71 0;
-#X connect 75 0 50 0;
-#X connect 75 1 51 0;
-#X connect 75 2 52 0;
-#X connect 75 3 53 0;
-#X connect 75 4 76 0;
+#X connect 75 0 90 0;
+#X connect 75 1 91 0;
+#X connect 75 2 92 0;
+#X connect 75 3 93 0;
+#X connect 75 4 94 0;
 #X connect 79 0 77 0;
+#X connect 89 0 20 0;
+#X connect 89 0 20 1;
+#X connect 90 0 50 0;
+#X connect 91 0 51 0;
+#X connect 92 0 52 0;
+#X connect 93 0 53 0;
+#X connect 94 0 76 0;
+#X connect 95 0 96 0;
+#X connect 96 0 100 0;
+#X connect 97 0 95 0;
+#X connect 98 0 95 0;
+#X connect 99 0 100 1;
+#X connect 101 0 97 0;
