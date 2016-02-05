@@ -245,6 +245,8 @@
 #X obj 734 292 r boysgirls;
 #X obj 586 399 s boysgirls;
 #X obj 734 326 select 0 1;
+#X obj -349 -4 r boysgirls;
+#X obj -349 30 select 0 1;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 8 0;
@@ -352,3 +354,6 @@
 #X connect 174 0 153 0;
 #X connect 174 1 74 0;
 #X connect 174 1 141 0;
+#X connect 175 0 176 0;
+#X connect 176 0 10 0;
+#X connect 176 1 9 0;
