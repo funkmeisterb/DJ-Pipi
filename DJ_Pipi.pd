@@ -1,4 +1,4 @@
-#N canvas 0 0 1920 997 10;
+#N canvas 1985 54 1855 1026 10;
 #X declare -lib mrpeach;
 #X obj -115 33 import mrpeach;
 #X obj -462 364 udpsend;
@@ -24,14 +24,12 @@
 #X obj -111 84 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj -111 55 loadbang;
-#X obj 289 955 dac~ 1 2;
+#X obj 219 952 dac~ 1 2;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array sf-trigger1 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -458 457 graph;
-#X obj 118 767 tabplay~ sf-trigger1;
 #X obj 162 161 s trigger1;
-#X obj 131 746 r trigger1;
 #X obj 233 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 233 161 s trigger2;
@@ -46,7 +44,6 @@
 #X msg 1 263 send /trigger4;
 #X obj 762 397 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -4034
 -1 -1;
-#X obj 118 726 r file_trigger1;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array sf-trigger2 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
@@ -59,23 +56,12 @@
 #X array sf-trigger4 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -462 757 graph;
-#X obj 249 726 r file_trigger2;
-#X obj 262 746 r trigger2;
-#X obj 249 767 tabplay~ sf-trigger2;
-#X obj 384 726 r file_trigger3;
-#X obj 397 746 r trigger3;
-#X obj 384 767 tabplay~ sf-trigger3;
-#X obj 519 726 r file_trigger4;
-#X obj 532 746 r trigger4;
-#X obj 519 767 tabplay~ sf-trigger4;
-#X obj 762 357 loadbang;
+#X obj 762 340 loadbang;
 #X obj 301 379 key;
-#X obj 267 621 s trigger1;
-#X obj 296 601 s trigger2;
-#X obj 325 582 s trigger3;
-#X obj 354 562 s trigger4;
-#X text 170 291 W = sample 1 A = sample 2 S = sample 3 D = sample 4
-;
+#X obj 90 632 s trigger1;
+#X obj 117 612 s trigger2;
+#X obj 144 593 s trigger3;
+#X obj 171 573 s trigger4;
 #X obj 280 320 tgl 45 0 empty empty Keyboard_control 17 7 0 10 -260097
 -1 -1 1 1;
 #X obj 280 410 gate;
@@ -97,35 +83,6 @@
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -309 758 graph;
 #X text -306 418 REMOTE TRIGGERS;
-#N canvas 1033 318 691 487 KIT1_LOCAL 0;
-#X obj 62 123 soundfiler;
-#X obj 62 149 s file_trigger1;
-#X obj 183 156 soundfiler;
-#X obj 183 182 s file_trigger2;
-#X msg 62 98 read kit1/171104__dwsd__kick-gettinglaid.wav sf-trigger1
-;
-#X msg 183 130 read kit1/13750__hookhead__snare-2.aif sf-trigger2;
-#X obj 308 186 soundfiler;
-#X obj 308 212 s file_trigger3;
-#X msg 308 160 read kit1/802__bdu__closehatac.aif sf-trigger3;
-#X obj 419 225 soundfiler;
-#X msg 419 191 read kit1/162312__britishpirate93__18-inch-crash.wav
-sf-trigger4;
-#X obj 419 251 s file_trigger4;
-#X obj 63 26 inlet;
-#X connect 0 0 1 0;
-#X connect 2 0 3 0;
-#X connect 4 0 0 0;
-#X connect 5 0 2 0;
-#X connect 6 0 7 0;
-#X connect 8 0 6 0;
-#X connect 9 0 11 0;
-#X connect 10 0 9 0;
-#X connect 12 0 4 0;
-#X connect 12 0 5 0;
-#X connect 12 0 8 0;
-#X connect 12 0 10 0;
-#X restore 762 480 pd KIT1_LOCAL;
 #N canvas 1033 318 673 440 SECRET 0;
 #X obj 62 123 soundfiler;
 #X obj 62 26 inlet;
@@ -135,193 +92,263 @@ sf-trigger4;
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;
-#X restore 639 399 pd SECRET SOUNDS;
+#X restore 639 398 pd SECRET SOUNDS;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array sf-secret1 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -144 455 graph;
 #X text -145 415 SECRET TRIGGERS;
-#X obj -10 726 r file_secret1;
-#X obj 3 746 r secret1;
-#X obj -10 767 tabplay~ sf-secret1;
 #X obj 162 103 routeOSC /trigger1 /trigger2 /trigger3 /trigger4;
 #X obj 585 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 585 102 routeOSC /secret1;
 #X obj 585 160 s secret1;
-#X floatatom 346 416 5 0 0 0 - - -;
-#X obj 280 448 route 119 97 115 100 45;
-#X obj 388 503 s secret1;
-#N canvas 0 0 1920 997 KIT2_LOCAL 0;
-#X obj 62 123 soundfiler;
-#X obj 62 149 s file_trigger1;
-#X obj 183 156 soundfiler;
-#X obj 183 182 s file_trigger2;
-#X obj 308 186 soundfiler;
-#X obj 308 212 s file_trigger3;
-#X obj 419 225 soundfiler;
-#X obj 419 251 s file_trigger4;
-#X obj 63 26 inlet;
-#X msg 62 98 read 808/183102__dwsd__clp-bodacious.wav sf-trigger1;
-#X msg 419 191 read 808/183125__dwsd__prc-dust808popperc.wav sf-trigger4
-;
-#X msg 183 130 read 808/183125__dwsd__prc-dust808popperc.wav sf-trigger2
-;
-#X msg 308 160 read 808/183104__dwsd__hat-bodacious.wav sf-trigger3
-;
-#X connect 0 0 1 0;
-#X connect 2 0 3 0;
-#X connect 4 0 5 0;
-#X connect 6 0 7 0;
-#X connect 8 0 9 0;
-#X connect 8 0 11 0;
-#X connect 8 0 12 0;
-#X connect 8 0 10 0;
-#X connect 9 0 0 0;
-#X connect 10 0 6 0;
-#X connect 11 0 2 0;
-#X connect 12 0 4 0;
-#X restore 853 478 pd KIT2_LOCAL;
+#X floatatom 377 403 5 0 0 0 - - -;
+#X obj 90 459 route 119 97 115 100 45;
+#X obj 198 514 s secret1;
 #X text 766 457 CLASSIC;
-#X obj 853 397 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -204800
+#X obj 952 396 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -204800
 -1 -1;
-#X text 857 459 808;
-#X text 764 499 1: KICK;
-#X text 763 516 2: SNARE;
-#X text 765 532 3: HI-HAT;
-#X text 765 551 4: CRASH;
-#X text 851 533 3: HI-HAT;
-#X text 851 553 4: POPPER;
-#X text 850 500 1: ?;
-#X text 849 517 2: CLAP;
-#X obj 119 792 sfx;
-#X obj 267 572 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X text 956 458 808;
+#X text 833 396 1: KICK;
+#X text 832 413 2: SNARE;
+#X text 834 429 3: HI-HAT;
+#X text 834 448 4: CRASH;
+#X text 1022 425 3: HI-HAT;
+#X text 1021 442 4: POPPER;
+#X text 1022 392 1: ?;
+#X text 1022 408 2: CLAP;
+#X obj 90 601 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 117 583 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 290 566 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 144 568 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 319 557 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 171 547 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 350 536 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 198 492 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 388 481 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 824 698 mtof;
-#X obj 824 726 phasor~;
-#X msg 787 636 69;
-#X msg 842 646 0;
-#X obj 900 685 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X obj 824 754 *~;
-#X obj 764 607 notein;
 #X msg -430 125 connect 10.10.80.61 80085;
-#N canvas 0 0 1920 997 KIT2_LOCAL 0;
-#X obj 62 123 soundfiler;
-#X obj 62 149 s file_trigger1;
-#X obj 183 156 soundfiler;
-#X obj 183 182 s file_trigger2;
-#X obj 308 186 soundfiler;
-#X obj 308 212 s file_trigger3;
-#X obj 419 225 soundfiler;
-#X obj 419 251 s file_trigger4;
-#X obj 63 26 inlet;
-#X msg 62 98 read banjo/banjo_B4_very-long_forte_normal.wav sf-trigger1
-;
-#X msg 183 130 read banjo/banjo_C4_very-long_forte_normal.wav sf-trigger2
-;
-#X msg 308 160 read banjo/banjo_F4_very-long_forte_normal.wav sf-trigger3
-;
-#X msg 419 191 read banjo/banjo_G4_very-long_piano_normal.wav sf-trigger4
-;
-#X connect 0 0 1 0;
-#X connect 2 0 3 0;
-#X connect 4 0 5 0;
-#X connect 6 0 7 0;
-#X connect 8 0 9 0;
-#X connect 8 0 10 0;
-#X connect 8 0 11 0;
-#X connect 8 0 12 0;
-#X connect 9 0 0 0;
-#X connect 10 0 2 0;
-#X connect 11 0 4 0;
-#X connect 12 0 6 0;
-#X restore 948 480 pd KIT2_LOCAL;
-#X obj 948 399 bng 60 250 50 0 empty empty Banjo 17 7 0 10 -232576
+#X obj 1121 370 bng 60 250 50 0 empty empty Banjo 17 7 0 10 -232576
 -1 -1;
-#X text 952 461 808;
-#X text 945 502 1: B4;
-#X text 944 519 2: C4;
-#X text 946 535 3: F4;
-#X text 946 555 4: G4;
+#X text 1193 364 1: B4;
+#X text 1193 382 2: C4;
+#X text 1193 399 3: F4;
+#X text 1194 416 4: G4;
+#X obj 948 119 udpreceive 80085;
+#X obj 948 156 unpackOSC;
+#X obj 878 202 print OSC;
+#X obj 948 188 routeOSC /trigger1 /trigger2 /trigger3 /trigger4;
+#X obj 948 221 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1019 221 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1090 220 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1161 220 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 948 246 s remote1;
+#X obj 1019 246 s remote2;
+#X obj 1090 245 s remote3;
+#X obj 1161 245 s remote4;
+#X obj 1294 501 sampleLoader;
+#X obj 1294 345 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144
+-1 -1 0;
+#X obj 761 53 loadbang;
+#X msg 761 80 0;
+#X text 1321 341 local;
+#X text 1319 359 remote;
+#X obj 1311 415 r localSample1;
+#X obj 1328 435 r localSample2;
+#X obj 1345 455 r localSample3;
+#X obj 1363 475 r localSample4;
+#X obj 937 335 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144 -1
+-1 0;
+#X text 964 331 local;
+#X text 962 349 remote;
+#X obj 761 106 s loadlocal;
+#X obj 837 52 loadbang;
+#X obj 837 105 s loadremote;
+#X obj 937 309 r loadlocal;
+#X obj 1294 321 r loadlocal;
+#X obj 762 480 kit1loader;
+#X obj 949 486 kit2loader;
+#X obj 1091 489 kit3loader;
+#X text 1125 433 BANJO;
+#X text 43 456 LOCAL;
+#X obj 64 744 localSoundPlayer;
+#X obj 341 596 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 371 578 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 402 563 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 433 542 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 294 451 REMOTE;
+#X obj 1252 822 sampleLoader;
+#X obj 1252 666 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144
+-1 -1 1;
+#X text 1279 662 local;
+#X text 1277 680 remote;
+#X obj 1252 642 r loadremote;
+#X obj 1269 736 r remoteSample1;
+#X obj 1286 756 r remoteSample2;
+#X obj 1303 776 r remoteSample3;
+#X obj 1321 796 r remoteSample4;
+#X obj 341 627 s remote1;
+#X obj 341 454 route 105 106 107 108;
+#X obj 371 607 s remote2;
+#X obj 402 588 s remote3;
+#X obj 433 568 s remote4;
+#X obj 347 774 remoteSoundPlayer;
+#X text 171 276 WASD for local samples 1-4;
+#X text 172 296 IJKL for remote samples 1-4;
+#X obj -301 236 r trigger1;
+#X obj -202 237 r trigger2;
+#X obj -103 233 r trigger3;
+#X obj 1 232 r trigger4;
+#X obj 722 721 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -4034
+-1 -1;
+#X obj 722 664 loadbang;
+#N canvas 1033 318 673 440 SECRET 0;
+#X obj 62 123 soundfiler;
+#X obj 62 26 inlet;
+#X msg 62 98 read 245788__manchesterprod2__male-ahhhh.wav sf-secret1
+;
+#X obj 62 149 s file_secret1;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X restore 599 722 pd SECRET SOUNDS;
+#X text 726 781 CLASSIC;
+#X obj 912 720 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -204800
+-1 -1;
+#X text 916 782 808;
+#X text 793 720 1: KICK;
+#X text 792 737 2: SNARE;
+#X text 794 753 3: HI-HAT;
+#X text 794 772 4: CRASH;
+#X text 982 749 3: HI-HAT;
+#X text 981 766 4: POPPER;
+#X text 982 716 1: ?;
+#X text 982 732 2: CLAP;
+#X obj 1081 694 bng 60 250 50 0 empty empty Banjo 17 7 0 10 -232576
+-1 -1;
+#X text 1153 688 1: B4;
+#X text 1153 706 2: C4;
+#X text 1153 723 3: F4;
+#X text 1154 740 4: G4;
+#X obj 897 659 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144 -1
+-1 1;
+#X text 924 655 local;
+#X text 922 673 remote;
+#X obj 722 804 kit1loader;
+#X obj 909 810 kit2loader;
+#X obj 1051 813 kit3loader;
+#X text 1085 757 BANJO;
+#X msg 837 79 1;
+#X obj 897 633 r loadremote;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 8 0;
 #X connect 7 0 1 0;
-#X connect 8 0 69 0;
-#X connect 8 0 71 0;
+#X connect 8 0 52 0;
+#X connect 8 0 54 0;
 #X connect 9 0 7 0;
-#X connect 10 0 101 0;
+#X connect 10 0 75 0;
 #X connect 11 0 12 0;
 #X connect 12 0 1 0;
 #X connect 14 0 2 0;
-#X connect 15 0 22 0;
+#X connect 15 0 21 0;
 #X connect 17 0 16 0;
 #X connect 18 0 17 0;
-#X connect 21 0 88 0;
-#X connect 23 0 21 0;
+#X connect 22 0 23 0;
 #X connect 24 0 25 0;
 #X connect 26 0 27 0;
-#X connect 28 0 29 0;
+#X connect 28 0 2 0;
+#X connect 29 0 2 0;
 #X connect 30 0 2 0;
-#X connect 31 0 2 0;
-#X connect 32 0 2 0;
-#X connect 33 0 62 0;
-#X connect 34 0 21 0;
-#X connect 38 0 40 0;
-#X connect 39 0 40 0;
-#X connect 40 0 19 0;
-#X connect 40 0 19 1;
-#X connect 41 0 43 0;
-#X connect 42 0 43 0;
-#X connect 43 0 19 0;
-#X connect 43 0 19 1;
-#X connect 44 0 46 0;
-#X connect 45 0 46 0;
-#X connect 46 0 19 0;
-#X connect 46 0 19 1;
-#X connect 47 0 33 0;
-#X connect 47 0 63 0;
-#X connect 48 0 55 1;
-#X connect 48 0 73 0;
-#X connect 54 0 55 0;
-#X connect 55 0 74 0;
-#X connect 66 0 68 0;
-#X connect 67 0 68 0;
-#X connect 68 0 19 0;
-#X connect 68 0 19 1;
-#X connect 69 0 15 0;
-#X connect 69 1 24 0;
-#X connect 69 2 26 0;
-#X connect 69 3 28 0;
-#X connect 70 0 72 0;
-#X connect 71 0 70 0;
-#X connect 74 0 89 0;
-#X connect 74 1 90 0;
-#X connect 74 2 91 0;
-#X connect 74 3 92 0;
-#X connect 74 4 93 0;
-#X connect 78 0 76 0;
-#X connect 88 0 19 0;
-#X connect 88 0 19 1;
-#X connect 89 0 49 0;
-#X connect 90 0 50 0;
-#X connect 91 0 51 0;
-#X connect 92 0 52 0;
-#X connect 93 0 75 0;
-#X connect 94 0 95 0;
-#X connect 95 0 99 0;
-#X connect 96 0 94 0;
-#X connect 97 0 94 0;
-#X connect 98 0 99 1;
-#X connect 100 0 96 0;
-#X connect 101 0 1 0;
-#X connect 103 0 102 0;
+#X connect 31 0 111 0;
+#X connect 35 0 49 0;
+#X connect 35 0 31 0;
+#X connect 36 0 42 1;
+#X connect 36 0 56 0;
+#X connect 41 0 42 0;
+#X connect 42 0 57 0;
+#X connect 42 0 132 0;
+#X connect 52 0 15 0;
+#X connect 52 1 22 0;
+#X connect 52 2 24 0;
+#X connect 52 3 26 0;
+#X connect 53 0 55 0;
+#X connect 54 0 53 0;
+#X connect 57 0 70 0;
+#X connect 57 1 71 0;
+#X connect 57 2 72 0;
+#X connect 57 3 73 0;
+#X connect 57 4 74 0;
+#X connect 60 0 112 0;
+#X connect 70 0 37 0;
+#X connect 71 0 38 0;
+#X connect 72 0 39 0;
+#X connect 73 0 40 0;
+#X connect 74 0 58 0;
+#X connect 75 0 1 0;
+#X connect 76 0 113 0;
+#X connect 81 0 82 0;
+#X connect 82 0 83 0;
+#X connect 82 0 84 0;
+#X connect 84 0 85 0;
+#X connect 84 1 86 0;
+#X connect 84 2 87 0;
+#X connect 84 3 88 0;
+#X connect 85 0 89 0;
+#X connect 86 0 90 0;
+#X connect 87 0 91 0;
+#X connect 88 0 92 0;
+#X connect 94 0 93 0;
+#X connect 95 0 96 0;
+#X connect 96 0 106 0;
+#X connect 99 0 93 1;
+#X connect 100 0 93 2;
+#X connect 101 0 93 3;
+#X connect 102 0 93 4;
+#X connect 103 0 111 1;
+#X connect 103 0 112 1;
+#X connect 103 0 113 1;
+#X connect 107 0 169 0;
+#X connect 109 0 103 0;
+#X connect 110 0 94 0;
+#X connect 116 0 19 0;
+#X connect 116 1 19 1;
+#X connect 117 0 131 0;
+#X connect 118 0 133 0;
+#X connect 119 0 134 0;
+#X connect 120 0 135 0;
+#X connect 123 0 122 0;
+#X connect 126 0 123 0;
+#X connect 127 0 122 1;
+#X connect 128 0 122 2;
+#X connect 129 0 122 3;
+#X connect 130 0 122 4;
+#X connect 132 0 117 0;
+#X connect 132 1 118 0;
+#X connect 132 2 119 0;
+#X connect 132 3 120 0;
+#X connect 136 0 19 0;
+#X connect 136 1 19 1;
+#X connect 139 0 14 0;
+#X connect 140 0 28 0;
+#X connect 141 0 29 0;
+#X connect 142 0 30 0;
+#X connect 143 0 165 0;
+#X connect 144 0 145 0;
+#X connect 144 0 143 0;
+#X connect 147 0 166 0;
+#X connect 157 0 167 0;
+#X connect 162 0 165 1;
+#X connect 162 0 166 1;
+#X connect 162 0 167 1;
+#X connect 169 0 108 0;
+#X connect 170 0 162 0;
