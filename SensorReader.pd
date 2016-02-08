@@ -1,0 +1,16 @@
+#N canvas 1912 -8 1920 1037 10;
+#X obj 580 218 comport 4 9600;
+#X msg 572 127 open 4;
+#X msg 685 110 close;
+#X obj 573 90 loadbang;
+#X obj 580 406 print;
+#X floatatom 585 277 5 0 0 0 - - -;
+#X floatatom 660 385 5 0 0 0 - - -;
+#X obj 677 318 + 100;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 5 0 4 0;
+#X connect 5 0 7 0;
+#X connect 7 0 6 0;
