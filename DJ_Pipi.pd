@@ -1,4 +1,4 @@
-#N canvas 1985 54 1855 1026 10;
+#N canvas 138 197 1855 1026 10;
 #X declare -lib mrpeach;
 #X obj -115 33 import mrpeach;
 #X obj -462 364 udpsend;
@@ -20,9 +20,9 @@
 #X msg -301 264 send /trigger1;
 #X obj 162 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg -110 116 \; pd dsp \$1;
-#X obj -111 84 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
+#X msg -111 133 \; pd dsp \$1;
+#X obj -111 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
 #X obj -111 55 loadbang;
 #X obj -63 882 dac~ 1 2;
 #N canvas 0 0 450 300 (subpatch) 0;
@@ -62,7 +62,7 @@
 #X obj 144 593 s trigger3;
 #X obj 171 573 s trigger4;
 #X obj 280 320 tgl 45 0 empty empty Keyboard_control 17 7 0 10 -260097
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 280 410 gate;
 #X text -459 417 LOCAL TRIGGERS;
 #N canvas 0 0 450 300 (subpatch) 0;
@@ -267,6 +267,7 @@
 #X obj 343 867 delay 1500;
 #X obj 195 818 loadbang;
 #X text 270 814 PLAY SOUNDS ON STARTUP;
+#X obj -111 82 delay 500;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 8 0;
@@ -280,7 +281,7 @@
 #X connect 14 0 2 0;
 #X connect 15 0 21 0;
 #X connect 17 0 16 0;
-#X connect 18 0 17 0;
+#X connect 18 0 192 0;
 #X connect 22 0 23 0;
 #X connect 24 0 25 0;
 #X connect 26 0 27 0;
@@ -390,3 +391,4 @@
 #X connect 188 0 186 0;
 #X connect 189 0 182 0;
 #X connect 190 0 179 0;
+#X connect 192 0 17 0;
