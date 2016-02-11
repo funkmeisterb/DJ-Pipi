@@ -1,14 +1,16 @@
-#N canvas 138 197 1855 1026 10;
+#N canvas 51 79 1855 1018 10;
 #X declare -lib mrpeach;
+#X declare -lib mrpeach;
+#X declare -lib zexy;
 #X obj -115 33 import mrpeach;
 #X obj -462 364 udpsend;
 #X obj -302 305 packOSC;
 #X text -291 70 Boys' room;
 #X text -259 124 Ladies' room;
 #X msg -412 263 disconnect;
-#X obj 162 35 udpreceive 80085;
+#X obj 132 35 udpreceive 80085;
 #X msg -455 71 connect 10.10.80.48 80085;
-#X obj 162 73 unpackOSC;
+#X obj 132 73 unpackOSC;
 #X obj -455 43 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj -430 98 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -18,41 +20,41 @@
 #X msg -411 206 connect localhost 80085;
 #X text -250 207 Testing;
 #X msg -301 264 send /trigger1;
-#X obj 162 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 132 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg -111 133 \; pd dsp \$1;
-#X obj -111 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+#X msg -110 116 \; pd dsp \$1;
+#X obj -111 84 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
 #X obj -111 55 loadbang;
-#X obj -63 882 dac~ 1 2;
-#N canvas 0 0 450 300 (subpatch) 0;
+#X obj 219 952 dac~ 1 2;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-trigger1 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -458 457 graph;
-#X obj 162 161 s trigger1;
-#X obj 233 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 132 161 s trigger1;
+#X obj 203 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 233 161 s trigger2;
-#X obj 304 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 203 161 s trigger2;
+#X obj 274 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 304 160 s trigger3;
-#X obj 375 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 274 160 s trigger3;
+#X obj 345 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 375 160 s trigger4;
+#X obj 345 160 s trigger4;
 #X msg -202 264 send /trigger2;
 #X msg -103 263 send /trigger3;
 #X msg 1 263 send /trigger4;
-#X obj 678 427 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -4034
+#X obj 518 427 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -4034
 -1 -1;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-trigger2 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -462 555 graph;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-trigger3 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -462 654 graph;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-trigger4 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -462 757 graph;
@@ -65,19 +67,19 @@
 -1 -1 0 1;
 #X obj 280 410 gate;
 #X text -459 417 LOCAL TRIGGERS;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-remote1 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -305 458 graph;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-remote2 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -309 556 graph;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-remote3 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -309 655 graph;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-remote4 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -309 758 graph;
@@ -91,32 +93,32 @@
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;
-#X restore 991 335 pd SECRET SOUNDS;
-#N canvas 0 0 450 300 (subpatch) 0;
+#X restore 831 335 pd SECRET SOUNDS;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-secret1 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -144 455 graph;
 #X text -145 415 SECRET TRIGGERS;
-#X obj 162 103 routeOSC /trigger1 /trigger2 /trigger3 /trigger4;
-#X obj 585 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 132 103 routeOSC /trigger1 /trigger2 /trigger3 /trigger4;
+#X obj 442 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 585 102 routeOSC /secret1;
-#X obj 585 160 s secret1;
+#X obj 442 103 routeOSC /secret1;
+#X obj 442 161 s secret1;
 #X floatatom 377 403 5 0 0 0 - - -;
 #X obj 90 459 route 119 97 115 100 45;
 #X obj 198 514 s secret1;
-#X text 682 487 CLASSIC;
-#X obj 868 426 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -204800
+#X text 522 487 CLASSIC;
+#X obj 708 426 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -204800
 -1 -1;
-#X text 872 488 808;
-#X text 749 426 1: KICK;
-#X text 748 443 2: SNARE;
-#X text 750 459 3: HI-HAT;
-#X text 750 478 4: CRASH;
-#X text 938 455 3: HI-HAT;
-#X text 937 472 4: POPPER;
-#X text 938 422 1: ?;
-#X text 938 438 2: CLAP;
+#X text 712 488 808;
+#X text 589 426 1: KICK;
+#X text 588 443 2: SNARE;
+#X text 590 459 3: HI-HAT;
+#X text 590 478 4: CRASH;
+#X text 778 455 3: HI-HAT;
+#X text 777 472 4: POPPER;
+#X text 778 422 1: ?;
+#X text 778 438 2: CLAP;
 #X obj 90 601 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 117 583 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -127,12 +129,12 @@
 -1 -1;
 #X obj 198 492 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1024 425 bng 60 250 50 0 empty empty Banjo 17 7 0 10 -232576
+#X obj 864 425 bng 60 250 50 0 empty empty Banjo 17 7 0 10 -232576
 -1 -1;
-#X text 1096 419 1: B4;
-#X text 1096 437 2: C4;
-#X text 1096 454 3: F4;
-#X text 1097 471 4: G4;
+#X text 936 419 1: B4;
+#X text 936 437 2: C4;
+#X text 936 454 3: F4;
+#X text 937 471 4: G4;
 #X obj 948 119 udpreceive 80085;
 #X obj 948 156 unpackOSC;
 #X obj 878 202 print OSC;
@@ -160,21 +162,21 @@
 #X obj 1244 465 r localSample2;
 #X obj 1261 485 r localSample3;
 #X obj 1279 505 r localSample4;
-#X obj 853 365 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144 -1
+#X obj 693 365 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144 -1
 -1 0;
-#X text 880 361 local;
-#X text 878 379 remote;
+#X text 720 361 local;
+#X text 718 379 remote;
 #X obj 761 106 s loadlocal;
 #X obj 837 52 loadbang;
 #X obj 837 105 s loadremote;
-#X obj 853 339 r loadlocal;
+#X obj 693 339 r loadlocal;
 #X obj 1210 351 r loadlocal;
-#X obj 678 510 kit1loader;
-#X obj 868 511 kit2loader;
-#X obj 1024 511 kit3loader;
-#X text 1028 488 BANJO;
+#X obj 518 510 kit1loader;
+#X obj 708 511 kit2loader;
+#X obj 864 511 kit3loader;
+#X text 868 488 BANJO;
 #X text 43 456 LOCAL;
-#X obj -140 702 localSoundPlayer;
+#X obj 64 744 localSoundPlayer;
 #X obj 341 596 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 371 578 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -184,7 +186,6 @@
 #X obj 433 542 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 294 451 REMOTE;
-#X obj 1207 833 sampleLoader;
 #X obj 1207 677 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144
 -1 -1 1;
 #X text 1234 673 local;
@@ -199,75 +200,63 @@
 #X obj 371 607 s remote2;
 #X obj 402 588 s remote3;
 #X obj 433 568 s remote4;
-#X obj -16 710 remoteSoundPlayer;
+#X obj 347 774 remoteSoundPlayer;
 #X text 171 276 WASD for local samples 1-4;
 #X text 172 296 IJKL for remote samples 1-4;
 #X obj -301 236 r trigger1;
 #X obj -202 237 r trigger2;
 #X obj -103 233 r trigger3;
 #X obj 1 232 r trigger4;
-#X obj 677 732 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -4034
+#X obj 517 732 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -4034
 -1 -1;
-#X text 681 792 CLASSIC;
-#X obj 867 731 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -204800
+#X text 521 792 CLASSIC;
+#X obj 707 731 bng 60 250 50 0 empty empty Drum_set 17 7 0 10 -204800
 -1 -1;
-#X text 871 793 808;
-#X text 748 731 1: KICK;
-#X text 747 748 2: SNARE;
-#X text 749 764 3: HI-HAT;
-#X text 749 783 4: CRASH;
-#X text 937 760 3: HI-HAT;
-#X text 936 777 4: POPPER;
-#X text 937 727 1: ?;
-#X text 937 743 2: CLAP;
-#X obj 1024 724 bng 60 250 50 0 empty empty Banjo 17 7 0 10 -232576
+#X text 711 793 808;
+#X text 588 731 1: KICK;
+#X text 587 748 2: SNARE;
+#X text 589 764 3: HI-HAT;
+#X text 589 783 4: CRASH;
+#X text 777 760 3: HI-HAT;
+#X text 776 777 4: POPPER;
+#X text 777 727 1: ?;
+#X text 777 743 2: CLAP;
+#X obj 864 724 bng 60 250 50 0 empty empty Banjo 17 7 0 10 -232576
 -1 -1;
-#X text 1096 718 1: B4;
-#X text 1096 736 2: C4;
-#X text 1096 753 3: F4;
-#X text 1097 770 4: G4;
-#X obj 852 670 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144 -1
+#X text 936 718 1: B4;
+#X text 936 736 2: C4;
+#X text 936 753 3: F4;
+#X text 937 770 4: G4;
+#X obj 692 670 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144 -1
 -1 1;
-#X text 879 666 local;
-#X text 877 684 remote;
-#X obj 677 815 kit1loader;
-#X obj 867 814 kit2loader;
-#X obj 1024 815 kit3loader;
-#X text 1028 787 BANJO;
+#X text 719 666 local;
+#X text 717 684 remote;
+#X obj 517 815 kit1loader;
+#X obj 707 814 kit2loader;
+#X text 868 787 BANJO;
 #X msg 837 79 1;
-#X obj 852 644 r loadremote;
+#X obj 692 644 r loadremote;
 #X msg -430 125 connect 10.10.80.34 80085;
-#X obj 586 257 vradio 50 1 0 2 empty empty empty 20 7 0 8 -4032 -1
--1 0;
-#X text 645 272 BOYS;
-#X text 643 323 GIRLS;
-#X obj 586 208 loadbang;
-#X obj 734 292 r boysgirls;
-#X obj 586 399 s boysgirls;
-#X obj 734 326 select 0 1;
+#X obj 610 56 vradio 50 1 0 2 empty empty empty 20 7 0 8 -4032 -1 -1
+0;
+#X text 669 71 BOYS;
+#X text 667 122 GIRLS;
+#X obj 610 7 loadbang;
+#X obj 574 292 r boysgirls;
+#X obj 610 198 s boysgirls;
+#X obj 574 326 select 0 1;
 #X obj -349 -4 r boysgirls;
 #X obj -349 30 select 0 1;
-#X obj 195 867 delay 1000;
-#X obj 195 891 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 1014 509 kit4loader;
+#X obj 1071 475 r toKits;
+#X obj 1014 284 r toKits;
+#X obj 1014 333 delay 100;
+#X obj 1014 312 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 195 842 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 195 914 s trigger1;
-#X obj 269 891 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 343 891 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 269 914 s trigger2;
-#X obj 269 867 delay 1200;
-#X obj 343 914 s trigger3;
-#X obj 413 891 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 413 914 s trigger4;
-#X obj 413 867 delay 1800;
-#X obj 343 867 delay 1500;
-#X obj 195 818 loadbang;
-#X text 270 814 PLAY SOUNDS ON STARTUP;
-#X obj -111 82 delay 500;
+#X obj 864 815 kit3loader;
+#X obj 223 755 SensorToSound;
+#X obj 1207 833 sampleLoader;
+#X obj 1014 813 kit4loader;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 8 0;
@@ -275,13 +264,13 @@
 #X connect 8 0 51 0;
 #X connect 8 0 53 0;
 #X connect 9 0 7 0;
-#X connect 10 0 167 0;
+#X connect 10 0 165 0;
 #X connect 11 0 12 0;
 #X connect 12 0 1 0;
 #X connect 14 0 2 0;
 #X connect 15 0 21 0;
 #X connect 17 0 16 0;
-#X connect 18 0 192 0;
+#X connect 18 0 17 0;
 #X connect 22 0 23 0;
 #X connect 24 0 25 0;
 #X connect 26 0 27 0;
@@ -293,7 +282,7 @@
 #X connect 35 0 55 0;
 #X connect 40 0 41 0;
 #X connect 41 0 56 0;
-#X connect 41 0 130 0;
+#X connect 41 0 129 0;
 #X connect 51 0 15 0;
 #X connect 51 1 22 0;
 #X connect 51 2 24 0;
@@ -334,61 +323,51 @@
 #X connect 101 0 110 1;
 #X connect 101 0 111 1;
 #X connect 101 0 48 0;
-#X connect 105 0 165 0;
+#X connect 101 0 175 1;
+#X connect 105 0 163 0;
 #X connect 107 0 101 0;
 #X connect 108 0 92 0;
 #X connect 114 0 19 0;
 #X connect 114 1 19 1;
-#X connect 115 0 129 0;
-#X connect 116 0 131 0;
-#X connect 117 0 132 0;
-#X connect 118 0 133 0;
-#X connect 121 0 120 0;
-#X connect 124 0 121 0;
-#X connect 125 0 120 1;
-#X connect 126 0 120 2;
-#X connect 127 0 120 3;
-#X connect 128 0 120 4;
-#X connect 130 0 115 0;
-#X connect 130 1 116 0;
-#X connect 130 2 117 0;
-#X connect 130 3 118 0;
-#X connect 134 0 19 0;
-#X connect 134 1 19 1;
-#X connect 137 0 14 0;
-#X connect 138 0 28 0;
-#X connect 139 0 29 0;
-#X connect 140 0 30 0;
-#X connect 141 0 161 0;
-#X connect 143 0 162 0;
-#X connect 153 0 163 0;
-#X connect 158 0 161 1;
-#X connect 158 0 162 1;
-#X connect 158 0 163 1;
-#X connect 165 0 106 0;
-#X connect 166 0 158 0;
-#X connect 167 0 1 0;
-#X connect 168 0 173 0;
-#X connect 171 0 168 0;
-#X connect 172 0 174 0;
-#X connect 174 0 31 0;
-#X connect 174 0 153 0;
-#X connect 174 1 74 0;
-#X connect 174 1 141 0;
-#X connect 175 0 176 0;
-#X connect 176 0 10 0;
-#X connect 176 1 9 0;
-#X connect 177 0 178 0;
-#X connect 178 0 180 0;
-#X connect 179 0 177 0;
-#X connect 179 0 184 0;
-#X connect 179 0 188 0;
-#X connect 179 0 189 0;
-#X connect 181 0 183 0;
-#X connect 182 0 185 0;
-#X connect 184 0 181 0;
-#X connect 186 0 187 0;
-#X connect 188 0 186 0;
-#X connect 189 0 182 0;
-#X connect 190 0 179 0;
-#X connect 192 0 17 0;
+#X connect 115 0 128 0;
+#X connect 116 0 130 0;
+#X connect 117 0 131 0;
+#X connect 118 0 132 0;
+#X connect 120 0 182 0;
+#X connect 123 0 120 0;
+#X connect 124 0 182 1;
+#X connect 125 0 182 2;
+#X connect 126 0 182 3;
+#X connect 127 0 182 4;
+#X connect 129 0 115 0;
+#X connect 129 1 116 0;
+#X connect 129 2 117 0;
+#X connect 129 3 118 0;
+#X connect 133 0 19 0;
+#X connect 133 1 19 1;
+#X connect 136 0 14 0;
+#X connect 137 0 28 0;
+#X connect 138 0 29 0;
+#X connect 139 0 30 0;
+#X connect 140 0 160 0;
+#X connect 142 0 161 0;
+#X connect 152 0 180 0;
+#X connect 157 0 160 1;
+#X connect 157 0 161 1;
+#X connect 157 0 180 1;
+#X connect 163 0 106 0;
+#X connect 164 0 157 0;
+#X connect 165 0 1 0;
+#X connect 166 0 171 0;
+#X connect 169 0 166 0;
+#X connect 170 0 172 0;
+#X connect 172 0 31 0;
+#X connect 172 0 152 0;
+#X connect 172 1 74 0;
+#X connect 172 1 140 0;
+#X connect 173 0 174 0;
+#X connect 174 0 10 0;
+#X connect 174 1 9 0;
+#X connect 176 0 175 2;
+#X connect 177 0 179 0;
+#X connect 179 0 178 0;
