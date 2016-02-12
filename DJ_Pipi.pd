@@ -285,8 +285,8 @@
 #X obj -99 849 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj -134 810 loadbang;
-#X msg -279 164 connect 10.10.80.71 80085;
 #X msg -454 103 connect 10.10.80.48 80085;
+#X msg -279 164 connect 10.10.80.40 80085;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 7 0;
@@ -408,8 +408,8 @@
 #X connect 188 0 183 0;
 #X connect 188 1 184 0;
 #X connect 188 2 191 0;
-#X connect 189 0 209 0;
-#X connect 190 0 210 0;
+#X connect 189 0 210 0;
+#X connect 190 0 209 0;
 #X connect 191 0 195 0;
 #X connect 192 0 183 0;
 #X connect 193 0 194 0;
