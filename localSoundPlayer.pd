@@ -38,6 +38,16 @@
 #X obj 943 28 r file_secret3;
 #X obj 956 47 r secret3;
 #X obj 943 99 tabplay~ sf-secret3;
+#X obj 955 463 tabplay~ DJPipi;
+#X obj 955 435 soundfiler;
+#X msg 955 364 read \$1 DJPipi;
+#X msg 955 328 symbol secretSounds/djpipi1.wav;
+#X obj 932 435 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 955 306 loadbang;
+#X obj 895 364 r DJPipi;
+#X obj 874 396 gate;
+#X obj 874 338 r enable;
 #X connect 2 0 0 0;
 #X connect 2 0 1 0;
 #X connect 3 0 2 0;
@@ -73,3 +83,13 @@
 #X connect 30 0 31 0;
 #X connect 31 0 0 0;
 #X connect 31 0 1 0;
+#X connect 32 0 0 0;
+#X connect 32 0 1 0;
+#X connect 33 0 32 0;
+#X connect 34 0 33 0;
+#X connect 35 0 34 0;
+#X connect 36 0 32 0;
+#X connect 37 0 35 0;
+#X connect 38 0 39 1;
+#X connect 39 0 36 0;
+#X connect 40 0 39 0;

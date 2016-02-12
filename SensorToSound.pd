@@ -30,6 +30,7 @@
 #X obj 400 115 s toKits;
 #X obj 400 73 routeOSC /changekit;
 #X text 553 83 TO DO: Declenche DJ PIPI;
+#X obj 273 135 s DJPipi;
 #X connect 1 0 2 0;
 #X connect 2 0 24 0;
 #X connect 2 0 27 0;
@@ -53,5 +54,6 @@
 #X connect 24 1 17 0;
 #X connect 24 2 18 0;
 #X connect 24 3 19 0;
+#X connect 24 4 29 0;
 #X connect 25 0 26 0;
 #X connect 27 0 25 0;
