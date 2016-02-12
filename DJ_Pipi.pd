@@ -1,4 +1,4 @@
-#N canvas 1985 54 1855 1026 10;
+#N canvas 1912 -8 1920 1037 10;
 #X declare -lib mrpeach;
 #X declare -lib mrpeach;
 #X declare -lib zexy;
@@ -49,7 +49,7 @@
 #X obj 113 795 s trigger3;
 #X obj 140 775 s trigger4;
 #X obj 249 522 tgl 45 0 empty empty Keyboard_control 17 7 0 10 -260097
--1 -1 0 1;
+-1 -1 1 1;
 #X obj 249 612 gate;
 #X text -459 417 LOCAL TRIGGERS;
 #N canvas 0 22 450 300 (subpatch) 0;
@@ -291,7 +291,7 @@ sf-secret1;
 #X array sf-secret3 77971 float 0;
 #X coords 0 1 77971 -1 130 70 1;
 #X restore -151 660 graph;
-#X obj 701 286 s localKitChange;
+#X obj 710 293 s localKitChange;
 #X obj 998 696 r localKitChange;
 #X obj 963 932 r remoteKitChange;
 #X obj -369 311 r toRemoteOSC;
@@ -461,7 +461,7 @@ sf-secret1;
 #X connect 215 4 194 0;
 #X connect 215 5 195 0;
 #X connect 217 0 193 0;
-#X connect 217 0 200 0;
 #X connect 217 0 216 0;
 #X connect 217 0 218 0;
 #X connect 218 0 213 0;
+#X connect 218 0 200 0;
