@@ -1,4 +1,4 @@
-#N canvas 2559 323 1186 632 10;
+#N canvas 2556 328 1186 632 10;
 #X obj 72 298 s localSample1;
 #X obj 300 153 s localSample2;
 #X obj 600 -165 s localSample4;
@@ -19,8 +19,6 @@
 #X obj 633 -214 prepend symbol;
 #X obj 333 105 prepend symbol;
 #X obj 105 242 prepend symbol;
-#X text 147 -303 bang to load samples;
-#X obj 109 -300 inlet;
 #X obj 633 -234 makefilename dynamicKits/%s/son4.wav;
 #X obj 481 -74 makefilename dynamicKits/%s/son3.wav;
 #X obj 333 85 makefilename dynamicKits/%s/son2.wav;
@@ -38,15 +36,15 @@
 #X connect 11 1 12 0;
 #X connect 13 0 0 0;
 #X connect 13 1 14 0;
+#X connect 15 0 20 0;
+#X connect 15 0 21 0;
 #X connect 15 0 22 0;
 #X connect 15 0 23 0;
-#X connect 15 0 24 0;
-#X connect 15 0 25 0;
 #X connect 16 0 10 1;
 #X connect 17 0 5 1;
 #X connect 18 0 11 1;
 #X connect 19 0 13 1;
-#X connect 22 0 17 0;
-#X connect 23 0 16 0;
-#X connect 24 0 18 0;
-#X connect 25 0 19 0;
+#X connect 20 0 17 0;
+#X connect 21 0 16 0;
+#X connect 22 0 18 0;
+#X connect 23 0 19 0;
