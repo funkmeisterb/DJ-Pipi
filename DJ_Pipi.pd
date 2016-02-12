@@ -127,28 +127,28 @@ sf-secret1;
 #X text 920 655 2: C4;
 #X text 920 672 3: F4;
 #X text 921 689 4: G4;
-#X obj 1082 5 udpreceive 80085;
-#X obj 1082 42 unpackOSC;
-#X obj 1082 74 routeOSC /trigger1 /trigger2 /trigger3 /trigger4;
-#X obj 1082 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 844 9 udpreceive 80085;
+#X obj 844 46 unpackOSC;
+#X obj 844 101 routeOSC /trigger1 /trigger2 /trigger3 /trigger4;
+#X obj 844 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1153 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 915 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1224 106 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 986 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1295 106 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 1057 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1082 132 s remote1;
-#X obj 1153 132 s remote2;
-#X obj 1224 131 s remote3;
-#X obj 1295 131 s remote4;
+#X obj 844 159 s remote1;
+#X obj 915 159 s remote2;
+#X obj 986 158 s remote3;
+#X obj 1057 158 s remote4;
 #X obj 1194 749 sampleLoader;
-#X obj 1194 593 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144
+#X obj 1194 616 vradio 15 1 0 2 empty empty empty 20 7 0 8 -262144
 -1 -1 0;
 #X obj 257 8 loadbang;
 #X msg 257 35 0;
-#X text 1221 589 local;
-#X text 1219 607 remote;
+#X text 1221 612 local;
+#X text 1219 630 remote;
 #X obj 1211 663 r localSample1;
 #X obj 1228 683 r localSample2;
 #X obj 1245 703 r localSample3;
@@ -161,7 +161,7 @@ sf-secret1;
 #X obj 333 7 loadbang;
 #X obj 333 60 s loadremote;
 #X obj 677 557 r loadlocal;
-#X obj 1194 569 r loadlocal;
+#X obj 1194 592 r loadlocal;
 #X obj 502 728 kit1loader;
 #X obj 692 729 kit2loader;
 #X obj 848 729 kit3loader;
@@ -274,7 +274,7 @@ sf-secret1;
 #X obj 462 333 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 462 355 s secret1;
-#X obj 941 120 print Receiving OSC;
+#X obj 867 75 print Receiving OSC;
 #X obj -193 327 print Sending OSC;
 #X obj 662 366 print Kit request;
 #X obj 701 246 prepend symbol;
@@ -302,14 +302,14 @@ sf-secret1;
 -1 -1;
 #X obj 998 727 dynamicLocalKitLoader;
 #X obj 963 967 dynamicRemoteKitLoader;
-#X obj 1189 319 prepend symbol;
-#X obj 1189 363 s remoteKitChange;
+#X obj 1153 123 prepend symbol;
+#X obj 1153 167 s remoteKitChange;
 #X msg 778 312 send /remotechange\$1;
 #X obj 778 369 s toRemoteOSC;
 #X obj 784 342 print Sending remote change;
-#X obj 1233 341 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 1197 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1060 288 routeOSC /remotechange;
+#X obj 1153 101 routeOSC /remotechange;
 #X obj 701 215 routeOSC /changekit;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
@@ -457,6 +457,6 @@ sf-secret1;
 #X connect 209 0 214 0;
 #X connect 211 0 212 0;
 #X connect 211 0 213 0;
-#X connect 215 1 209 0;
+#X connect 215 0 209 0;
 #X connect 216 0 193 0;
 #X connect 216 0 194 0;
