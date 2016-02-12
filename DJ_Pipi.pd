@@ -1,19 +1,19 @@
-#N canvas 65 89 1855 998 10;
+#N canvas 65 54 1855 1026 10;
 #X declare -lib mrpeach;
 #X declare -lib mrpeach;
 #X declare -lib zexy;
-#X obj -115 33 import mrpeach;
+#X obj -213 3 import mrpeach;
 #X obj -462 364 udpsend;
 #X obj -302 305 packOSC;
-#X text -291 70 Boys' room;
-#X text -259 124 Ladies' room;
-#X msg -412 263 disconnect;
+#X text -385 77 Boys' room;
+#X text -250 117 Ladies' room;
+#X msg -382 256 disconnect;
 #X obj 132 35 udpreceive 80085;
-#X msg -455 71 connect 10.10.80.48 80085;
+#X msg -454 103 connect 10.10.80.48 80085;
 #X obj 132 73 unpackOSC;
-#X obj -455 43 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj -454 43 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj -430 98 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj -279 119 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj -411 179 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -22,10 +22,10 @@
 #X msg -301 264 send /trigger1;
 #X obj 132 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg -110 116 \; pd dsp \$1;
-#X obj -111 84 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X msg -36 123 \; pd dsp \$1;
+#X obj -36 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj -111 55 loadbang;
+#X obj -36 11 loadbang;
 #X obj 219 952 dac~ 1 2;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array sf-trigger1 77971 float 0;
@@ -236,7 +236,7 @@
 #X text 868 787 BANJO;
 #X msg 809 34 1;
 #X obj 692 644 r loadremote;
-#X msg -430 125 connect 10.10.80.34 80085;
+#X msg -279 164 connect 10.10.80.34 80085;
 #X obj 610 56 vradio 50 1 0 2 empty empty empty 20 7 0 8 -4032 -1 -1
 0;
 #X text 669 71 BOYS;
@@ -256,28 +256,53 @@
 #X obj 223 755 SensorToSound;
 #X obj 1207 833 sampleLoader;
 #X obj 1014 813 kit4loader;
-#X obj 1243 40 unpackOSC;
-#X obj 1243 3 udpreceive 6666;
-#X obj 1243 72 routeOSC /boys /girls;
-#X msg 1243 98 0;
-#X msg 1304 98 1;
-#X obj 1243 130 s initboysgirls;
+#X obj 1122 46 unpackOSC;
+#X obj 1122 9 udpreceive 6666;
+#X msg 1122 104 0;
+#X msg 1185 104 1;
+#X obj 1122 136 s initboysgirls;
 #X obj 487 25 r initboysgirls;
-#X text 1316 38 INIT;
+#X text 1195 44 INIT;
+#X obj 1122 78 routeOSC /boys /girls /testaudio;
+#X obj -279 139 delay 100;
+#X obj -454 80 delay 100;
+#X obj 1248 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1041 41 loadbang;
+#X obj -36 37 delay 1000;
+#X msg -36 66 1;
+#X obj 1249 136 s testaudio;
+#X obj -123 96 s testaudio;
+#X obj -123 74 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -71 807 r testaudio;
+#X obj -228 916 delay 100;
+#X obj -132 920 delay 200;
+#X obj -56 922 delay 300;
+#X obj 36 932 delay 400;
+#X obj -228 941 s trigger1;
+#X obj -132 943 s trigger2;
+#X obj -56 944 s trigger3;
+#X obj 36 957 s trigger4;
+#X obj -99 849 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -134 810 loadbang;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 8 0;
 #X connect 7 0 1 0;
 #X connect 8 0 51 0;
 #X connect 8 0 53 0;
-#X connect 9 0 7 0;
-#X connect 10 0 165 0;
+#X connect 9 0 5 0;
+#X connect 9 0 192 0;
+#X connect 10 0 191 0;
+#X connect 10 0 5 0;
 #X connect 11 0 12 0;
 #X connect 12 0 1 0;
 #X connect 14 0 2 0;
 #X connect 15 0 21 0;
 #X connect 17 0 16 0;
-#X connect 18 0 17 0;
+#X connect 18 0 195 0;
 #X connect 22 0 23 0;
 #X connect 24 0 25 0;
 #X connect 26 0 27 0;
@@ -377,10 +402,29 @@
 #X connect 175 0 174 2;
 #X connect 176 0 178 0;
 #X connect 178 0 177 0;
-#X connect 183 0 185 0;
+#X connect 183 0 190 0;
 #X connect 184 0 183 0;
-#X connect 185 0 186 0;
-#X connect 185 1 187 0;
-#X connect 186 0 188 0;
-#X connect 187 0 188 0;
-#X connect 189 0 166 0;
+#X connect 185 0 187 0;
+#X connect 186 0 187 0;
+#X connect 188 0 166 0;
+#X connect 190 0 185 0;
+#X connect 190 1 186 0;
+#X connect 190 2 193 0;
+#X connect 191 0 165 0;
+#X connect 192 0 7 0;
+#X connect 193 0 197 0;
+#X connect 194 0 185 0;
+#X connect 195 0 196 0;
+#X connect 195 0 199 0;
+#X connect 196 0 17 0;
+#X connect 199 0 198 0;
+#X connect 200 0 209 0;
+#X connect 201 0 205 0;
+#X connect 202 0 206 0;
+#X connect 203 0 207 0;
+#X connect 204 0 208 0;
+#X connect 209 0 201 0;
+#X connect 209 0 202 0;
+#X connect 209 0 203 0;
+#X connect 209 0 204 0;
+#X connect 210 0 209 0;
