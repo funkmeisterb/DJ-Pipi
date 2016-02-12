@@ -286,7 +286,7 @@
 -1 -1;
 #X obj -134 810 loadbang;
 #X msg -279 164 connect 10.10.80.71 80085;
-#X msg -454 103 connect 10.10.80.34 80085;
+#X msg -454 103 connect 10.10.80.48 80085;
 #X connect 2 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 7 0;
