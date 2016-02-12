@@ -1,6 +1,6 @@
 #N canvas 116 116 1175 853 10;
-#X obj 143 312 outlet~;
-#X obj 256 314 outlet~;
+#X obj 198 590 outlet~;
+#X obj 311 592 outlet~;
 #X obj 183 82 r file_remote1;
 #X obj 314 82 r file_remote2;
 #X obj 449 82 r file_remote3;
@@ -15,6 +15,16 @@
 #X obj 584 123 tabplay~ sf-remote4;
 #X text 480 256 file_remote1 will be file data;
 #X text 480 278 remote1 will be bang to play;
+#X obj 684 448 tabplay~ DJPipi;
+#X obj 684 420 soundfiler;
+#X msg 684 349 read \$1 DJPipi;
+#X msg 684 313 symbol secretSounds/djpipi1.wav;
+#X obj 661 420 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 684 291 loadbang;
+#X obj 624 349 r DJPipi;
+#X obj 603 381 gate;
+#X obj 603 323 r enable;
 #X connect 2 0 7 0;
 #X connect 3 0 9 0;
 #X connect 4 0 11 0;
@@ -31,3 +41,13 @@
 #X connect 12 0 13 0;
 #X connect 13 0 0 0;
 #X connect 13 0 1 0;
+#X connect 16 0 1 0;
+#X connect 16 0 0 0;
+#X connect 17 0 16 0;
+#X connect 18 0 17 0;
+#X connect 19 0 18 0;
+#X connect 20 0 16 0;
+#X connect 21 0 19 0;
+#X connect 22 0 23 1;
+#X connect 23 0 20 0;
+#X connect 24 0 23 0;
